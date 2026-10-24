@@ -38,7 +38,12 @@ def answer(question: str, role: str, mode: str = "hybrid_rerank") -> dict:
     t0 = time.perf_counter()
     store = get_store()
     hits = retrieve(question, role, mode)
-    t_retrieve = time.perf_counter() - t0
+    wait = get_reranker().last_wait if mode == "hybrid_rerank" else 0.0
+    t_retrieve = time.perf_counter() - t0 - wait
+
+    def latency():
+        return {"retrieve": round(t_retrieve * 1000), "total": round((time.perf_counter() - t0 - wait) * 1000),
+                "rate_limit_wait": round(wait * 1000)}
     chunks = [store.chunks[h.chunk_id] for h in hits]
     top_rerank = max((h.rerank_score for h in hits if h.rerank_score is not None), default=None)
 
@@ -49,11 +54,12 @@ def answer(question: str, role: str, mode: str = "hybrid_rerank") -> dict:
         "reranker": get_reranker().name if mode == "hybrid_rerank" else None,
         "top_rerank_score": top_rerank,
         "contexts": [c["text"] for c in chunks],
+        "retrieved": [c["chunk_id"] for c in chunks],
     }
 
     if not chunks or (top_rerank is not None and top_rerank < settings.rerank_threshold):
         return {**base, "answer": IDK, "idk": True, "citations": [], "reason": "low_retrieval_score",
-                "latency_ms": {"retrieve": round(t_retrieve * 1000), "total": round((time.perf_counter() - t0) * 1000)}}
+                "latency_ms": latency()}
 
     resp = llm().chat.completions.create(
         model=settings.llm_model,
@@ -86,5 +92,5 @@ def answer(question: str, role: str, mode: str = "hybrid_rerank") -> dict:
         "citations": citations,
         "reason": "model_abstained" if idk else "answered",
         "usage": resp.usage.model_dump() if resp.usage else None,
-        "latency_ms": {"retrieve": round(t_retrieve * 1000), "total": round((time.perf_counter() - t0) * 1000)},
+        "latency_ms": latency(),
     }

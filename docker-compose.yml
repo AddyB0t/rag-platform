@@ -1,0 +1,22 @@
+# Qdrant server + API (which also serves the built React UI on :8000).
+# First run: docker compose run --rm api uv run --no-sync python scripts/collect_data.py
+#            docker compose run --rm api uv run --no-sync python scripts/build_index.py
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.5
+    ports: ["6333:6333"]
+    volumes: [qdrant_data:/qdrant/storage]
+
+  api:
+    build: .
+    env_file: .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    ports: ["8000:8000"]
+    volumes:
+      - ./data/raw:/app/data/raw
+      - ./storage:/app/storage
+    depends_on: [qdrant]
+
+volumes:
+  qdrant_data:

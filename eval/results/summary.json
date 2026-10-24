@@ -1,0 +1,53 @@
+{
+  "llm_model": "openai/gpt-4o-mini",
+  "modes": {
+    "dense": {
+      "n_questions": 63,
+      "faithfulness": 0.904,
+      "answer_relevancy": 0.821,
+      "context_precision": 0.812,
+      "ragas_scored": "43/43/43",
+      "doc_hit_at_5": 1.0,
+      "answered_rate_answerable": 0.93,
+      "idk_accuracy_unanswerable": 1.0,
+      "role_leak_retrieval": 0,
+      "role_leak_answers": 0,
+      "role_leak_questions_refused": "8/8",
+      "latency_p50_ms": 1738,
+      "latency_p95_ms": 2811,
+      "llm_cost_usd": 0.0136
+    },
+    "hybrid": {
+      "n_questions": 63,
+      "faithfulness": 0.951,
+      "answer_relevancy": 0.881,
+      "context_precision": 0.902,
+      "ragas_scored": "43/43/43",
+      "doc_hit_at_5": 1.0,
+      "answered_rate_answerable": 1.0,
+      "idk_accuracy_unanswerable": 1.0,
+      "role_leak_retrieval": 0,
+      "role_leak_answers": 0,
+      "role_leak_questions_refused": "8/8",
+      "latency_p50_ms": 1809,
+      "latency_p95_ms": 2675,
+      "llm_cost_usd": 0.0177
+    },
+    "hybrid_rerank": {
+      "n_questions": 63,
+      "faithfulness": 0.98,
+      "answer_relevancy": 0.88,
+      "context_precision": 0.955,
+      "ragas_scored": "43/43/43",
+      "doc_hit_at_5": 1.0,
+      "answered_rate_answerable": 1.0,
+      "idk_accuracy_unanswerable": 1.0,
+      "role_leak_retrieval": 0,
+      "role_leak_answers": 0,
+      "role_leak_questions_refused": "8/8",
+      "latency_p50_ms": 2163,
+      "latency_p95_ms": 3237,
+      "llm_cost_usd": 0.0149
+    }
+  }
+}

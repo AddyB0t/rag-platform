@@ -54,7 +54,9 @@ function Chat({ role }) {
   const [source, setSource] = useState(null);
   const endRef = useRef(null);
 
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), [messages]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   async function send(e) {
     e.preventDefault();

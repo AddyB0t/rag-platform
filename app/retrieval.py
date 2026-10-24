@@ -1,6 +1,9 @@
 """Hybrid retrieval: dense (Qdrant) + BM25, fused with RRF, then reranked."""
 
 import math
+import threading
+import time
+from collections import deque
 from dataclasses import dataclass
 from functools import lru_cache
 
@@ -36,17 +39,43 @@ class Reranker:
 
             self.client = cohere.ClientV2(api_key=settings.cohere_api_key)
             self.name = f"cohere/{settings.cohere_model}"
+            self._calls: deque[float] = deque()
+            self._lock = threading.Lock()
         else:
             from fastembed.rerank.cross_encoder import TextCrossEncoder
 
             self.encoder = TextCrossEncoder(model_name=settings.local_reranker)
             self.name = f"local/{settings.local_reranker}"
 
+    def _cohere(self, query: str, docs: list[str], top_n: int):
+        from cohere.errors import TooManyRequestsError
+
+        self.last_wait = 0.0
+        for attempt in range(8):
+            with self._lock:
+                now = time.monotonic()
+                while self._calls and now - self._calls[0] > 60:
+                    self._calls.popleft()
+                if len(self._calls) >= settings.cohere_calls_per_minute:
+                    wait = 60.5 - (now - self._calls[0])
+                    time.sleep(wait)
+                    self.last_wait += wait
+                self._calls.append(time.monotonic())
+            try:
+                return self.client.rerank(model=settings.cohere_model, query=query, documents=docs, top_n=top_n)
+            except TooManyRequestsError:
+                time.sleep(10 * (attempt + 1))
+                self.last_wait += 10 * (attempt + 1)
+        raise RuntimeError("Cohere rerank kept returning 429")
+
+    last_wait = 0.0
+
     def rerank(self, query: str, docs: list[str], top_n: int) -> list[tuple[int, float]]:
+        self.last_wait = 0.0
         if not docs:
             return []
         if hasattr(self, "client"):
-            res = self.client.rerank(model=settings.cohere_model, query=query, documents=docs, top_n=top_n)
+            res = self._cohere(query, docs, top_n)
             return [(r.index, float(r.relevance_score)) for r in res.results]
         scores = list(self.encoder.rerank(query, docs))
         probs = [1 / (1 + math.exp(-s)) for s in scores]

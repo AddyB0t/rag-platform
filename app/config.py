@@ -28,6 +28,7 @@ class Settings:
     llm_model: str = os.getenv("LLM_MODEL", "openai/gpt-4o-mini")
     cohere_api_key: str = os.getenv("COHERE_API_KEY", "")
     cohere_model: str = os.getenv("COHERE_RERANK_MODEL", "rerank-v3.5")
+    cohere_calls_per_minute: int = int(os.getenv("COHERE_CALLS_PER_MINUTE", "10"))
     local_reranker: str = os.getenv("LOCAL_RERANKER", "BAAI/bge-reranker-base")
     embed_model: str = os.getenv("EMBED_MODEL", "BAAI/bge-small-en-v1.5")
     qdrant_url: str = os.getenv("QDRANT_URL", "")
