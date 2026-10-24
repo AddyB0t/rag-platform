@@ -1,0 +1,42 @@
+[project]
+name = "rag-platform"
+version = "0.1.0"
+description = "Enterprise RAG knowledge platform: hybrid retrieval, reranking, cited answers, role-based access, RAGAS evaluation."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "llama-index-core>=0.12",
+    "llama-index-vector-stores-qdrant>=0.4",
+    "llama-index-embeddings-fastembed>=0.3",
+    "qdrant-client>=1.12",
+    "fastembed>=0.5",
+    "rank-bm25>=0.2.2",
+    "cohere>=5.13",
+    "openai>=1.60",
+    "langsmith>=0.3",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "python-multipart>=0.0.20",
+    "python-dotenv>=1.0",
+    "pypdf>=5.1",
+    "python-docx>=1.1",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.3",
+    "httpx>=0.28",
+    "tiktoken>=0.8",
+]
+
+[dependency-groups]
+eval = [
+    "ragas>=0.2.10",
+    "langchain-openai>=0.3",
+    "langchain-community>=0.3",
+    "pandas>=2.2",
+]
+dev = ["pytest>=8.3"]
+
+[tool.uv]
+default-groups = ["eval", "dev"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

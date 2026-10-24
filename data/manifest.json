@@ -1,0 +1,245 @@
+[
+  {
+    "path": "data\\raw\\sec\\apple_10k_2025-10-31.html",
+    "source": "sec",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+    "title": "Apple Form 10-K (filed 2025-10-31)",
+    "allowed_roles": [
+      "finance"
+    ]
+  },
+  {
+    "path": "data\\raw\\sec\\microsoft_10k_2026-07-29.html",
+    "source": "sec",
+    "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+    "title": "Microsoft Form 10-K (filed 2026-07-29)",
+    "allowed_roles": [
+      "finance"
+    ]
+  },
+  {
+    "path": "data\\raw\\sec\\nvidia_10k_2026-02-25.html",
+    "source": "sec",
+    "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+    "title": "NVIDIA Form 10-K (filed 2026-02-25)",
+    "allowed_roles": [
+      "finance"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2005.11401.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_1706.03762.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "title": "Attention Is All You Need",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2004.04906.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2004.04906",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2004.12832.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2004.12832",
+    "title": "ColBERT: Efficient and Effective Passage Search",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2210.03629.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2309.15217.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2309.15217",
+    "title": "RAGAS: Automated Evaluation of Retrieval Augmented Generation",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\arxiv\\arxiv_2104.08663.pdf",
+    "source": "arxiv",
+    "url": "https://arxiv.org/abs/2104.08663",
+    "title": "BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of IR Models",
+    "allowed_roles": [
+      "research"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Retrieval-augmented_generation.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Retrieval-augmented_generation",
+    "title": "Retrieval-augmented generation",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Large_language_model.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Large_language_model",
+    "title": "Large language model",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Okapi_BM25.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Okapi_BM25",
+    "title": "Okapi BM25",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Vector_database.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Vector_database",
+    "title": "Vector database",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Information_retrieval.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Information_retrieval",
+    "title": "Information retrieval",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Transformer_deep_learning_architecture.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)",
+    "title": "Transformer (deep learning architecture)",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Apple_Inc.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Apple_Inc.",
+    "title": "Apple Inc.",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Microsoft.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Microsoft",
+    "title": "Microsoft",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Nvidia.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Nvidia",
+    "title": "Nvidia",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_US_Securities_and_Exchange_Commission.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission",
+    "title": "U.S. Securities and Exchange Commission",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Form_10-K.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Form_10-K",
+    "title": "Form 10-K",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\wikipedia\\wiki_Graphics_processing_unit.html",
+    "source": "wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Graphics_processing_unit",
+    "title": "Graphics processing unit",
+    "allowed_roles": [
+      "all"
+    ]
+  },
+  {
+    "path": "data\\raw\\hr\\leave_and_holiday_policy.docx",
+    "source": "hr",
+    "url": "",
+    "title": "Leave and Holiday Policy",
+    "allowed_roles": [
+      "hr"
+    ]
+  },
+  {
+    "path": "data\\raw\\hr\\remote_and_hybrid_work_policy.docx",
+    "source": "hr",
+    "url": "",
+    "title": "Remote and Hybrid Work Policy",
+    "allowed_roles": [
+      "hr"
+    ]
+  },
+  {
+    "path": "data\\raw\\hr\\travel_and_expense_policy.docx",
+    "source": "hr",
+    "url": "",
+    "title": "Travel and Expense Policy",
+    "allowed_roles": [
+      "hr"
+    ]
+  },
+  {
+    "path": "data\\raw\\hr\\code_of_conduct_and_anti_harassment_policy.docx",
+    "source": "hr",
+    "url": "",
+    "title": "Code of Conduct and Anti-Harassment Policy",
+    "allowed_roles": [
+      "hr"
+    ]
+  },
+  {
+    "path": "data\\raw\\hr\\performance_review_and_compensation_policy.docx",
+    "source": "hr",
+    "url": "",
+    "title": "Performance Review and Compensation Policy",
+    "allowed_roles": [
+      "hr"
+    ]
+  }
+]
